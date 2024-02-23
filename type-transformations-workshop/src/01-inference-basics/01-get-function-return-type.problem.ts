@@ -1,12 +1,14 @@
-import { Equal, Expect } from "../helpers/type-utils";
+import { Equal, Expect } from '../helpers/type-utils'
 
-const myFunc = () => {
-  return "hello";
-};
+const myFunc = (user: string) => {
+	return 'hello'
+}
 
 /**
  * How do we extract MyFuncReturn from myFunc?
  */
-type MyFuncReturn = unknown;
 
-type tests = [Expect<Equal<MyFuncReturn, string>>];
+type MyFuncReturn = ReturnType<typeof myFunc>
+type myFunc = ReturnType<<T>() => T>
+
+type tests = [Expect<Equal<MyFuncReturn, string>>]
