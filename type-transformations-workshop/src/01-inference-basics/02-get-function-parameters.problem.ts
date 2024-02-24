@@ -12,6 +12,7 @@ const makeQuery = (
 ) => {}
 
 type MakeQueryParameters = Parameters<typeof makeQuery>
+type GetTuple = MakeQueryParameters[1]
 
 type tests = [
 	Expect<
