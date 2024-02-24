@@ -8,26 +8,34 @@
  * Which is which?
  */
 
+// discriminated union.
 type A =
-  | {
-      type: "a";
-      a: string;
-    }
-  | {
-      type: "b";
-      b: string;
-    }
-  | {
-      type: "c";
-      c: string;
-    };
+	| {
+			type: 'a'
+			whatever: string
+	  }
+	| {
+			type: 'b'
+			insideB: string
+	  }
+	| {
+			type: 'c'
+			c: string
+	  }
 
-type B = "a" | "b" | "c";
+const extract = (value: A) => {
+	if (value.type === 'b') {
+		value.insideB
+	}
+}
+// union
+type B = 'a' | 'b' | 'c'
 
+// ENUM
 enum C {
-  A = "a",
-  B = "b",
-  C = "c",
+	A = 'a',
+	B = 'b',
+	C = 'c',
 }
 
-export {};
+export {}
